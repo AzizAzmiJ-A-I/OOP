@@ -1,21 +1,51 @@
-public class User {
-    protected String Nama, nohp ;
+public abstract class User implements Action {
+    protected String Nama, nohp, Pass ;
     private int saldo,dana;
 
 
-    protected void setNama(String nama) {      //Setter
-        Nama = nama;
+    @Override
+    public boolean login() {
+        System.out.println("Masukkan username : ");
+        Nama = new java.util.Scanner(System.in).nextLine();
+
+        System.out.println("Masukkan password : ");
+        Pass = new java.util.Scanner(System.in).nextLine();
+
+        System.out.println("Masukkan nomer hp : ");
+        nohp = new java.util.Scanner(System.in).nextLine();
+
+        // Jika
+        if ((Nama == " ") && (Pass == " ") && (nohp == " ")) {
+            System.out.println("Login Berhasil");
+            return true;
+        } else {
+            System.out.println("Login Gagal");
+            return false;
+        }
+
     }
-    protected String getNohp() {        //Getter
-        return nohp = "081xxxx";
+
+    public String getlogin() {
+        return "\n"+"Anda Login Sebagai Guest";
     }
-    protected int getSaldo() {          //Getter
-        return saldo = 0 ;
+
+    @Override
+    public void logout() {
+        System.out.println("Terima Kasih telah menggunakan");
     }
 
 
-    public void struk(){
+    // protected void setNama(String nama) {      //Setter
+    //     Nama = nama;
+    // }
+    // protected String getNohp() {        //Getter
+    //     return nohp = "081xxxx";
+    // }
+    // protected int getSaldo() {          //Getter
+    //     return saldo = 0 ;
+    // }
 
-    }
+
+    abstract void kalkulasi();
 }
 
