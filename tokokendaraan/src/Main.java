@@ -6,24 +6,26 @@ public class Main {
         int plh1,plh2;
         Scanner scan = new Scanner(System.in);
         Menu menu1 = new Menu(0);                    //Instasiasi, buat Objek
-        User guest = null;
+        User2 guest = new User2() ;
         System.out.println("===== SELAMAT DATANG DI DEALER KENDARAAN =====");
         System.out.println("1. Guest Login");
         System.out.println("2. Sign In ");
         System.out.print("Pilih : ");   plh1 = scan.nextInt();
-        switch (plh1) {
-            case 1:
-                if(guest.login()){
-                    guest.getlogin();
-                }
-                break;
-            case 2:
-                System.out.println("Nama Anda : ");
-                break;
-            default:
-                guest.logout();
-                break;
-        }
+        do {
+            switch (plh1) {
+                case 1:
+                    if (guest.login()) {
+                        guest.getlogin();
+                    }
+                    break;
+                case 2:
+                    System.out.println("Nama Anda : ");
+                    break;
+                default:
+                    guest.logout();
+                    return ;
+            }
+        }while (plh1 >=3);
 
         System.out.println("--- SELAMAT DATANG DI DEALER KENDARAAN ---");
         System.out.println("WELCOME : "+ guest);
